@@ -4,12 +4,21 @@ import { useRef } from "react";
 
 const projects = [
   {
+    name: "Customer Service Chatbot",
+    tagline: "LLM embedded in everyday messaging",
+    problem: "I wanted to test how an AI assistant would behave inside an app I already use daily, not a separate tool I had to open.",
+    solution: "I embedded an LLM directly into WhatsApp, handling the full conversation flow with message routing and context.",
+    tech: ["Python", "LLM APIs", "WhatsApp API"],
+    github: "https://github.com/apablos00/whatsapp-chatbot-demo",
+    color: "#4ECDC4",
+  },
+  {
     name: "Autius",
     tagline: "Driving school slot monitor",
     problem: "I had to open the booking website every 30 minutes to check if a driving slot had opened. It was random, unpredictable, and I kept missing them.",
     solution: "I built a Python scraper that monitors the page 24/7 and sends me a Discord alert the instant a slot opens.",
     tech: ["Python", "Web Scraping", "Discord API"],
-    github: "https://github.com/apablos00/TipsterAuto/tree/autius",
+    github: "https://github.com/apablos00/autius-tracker",
     color: "#4ECDC4",
   },
   {
@@ -18,16 +27,7 @@ const projects = [
     problem: "I follow sports tipsters on Telegram to track their strategies, but they post at all hours. I kept missing bets, which skewed my analysis.",
     solution: "I built an AI pipeline that reads their Telegram messages, extracts the bet parameters and places them automatically across two bookmakers.",
     tech: ["Python", "AI / NLP", "Telegram API", "Bookmaker APIs"],
-    github: "https://github.com/apablos00/TipsterAuto/tree/master",
-    color: "#4ECDC4",
-  },
-  {
-    name: "WhatsApp AI Chatbot",
-    tagline: "LLM embedded in everyday messaging",
-    problem: "I wanted to test how an AI assistant would behave inside an app I already use daily, not a separate tool I had to open.",
-    solution: "I embedded an LLM directly into WhatsApp, handling the full conversation flow with message routing and context.",
-    tech: ["Python", "LLM APIs", "WhatsApp API"],
-    github: null,
+    github: "https://github.com/apablos00/tipster-auto",
     color: "#4ECDC4",
   },
 ];
