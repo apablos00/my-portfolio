@@ -1,26 +1,148 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #040C18;
+  color: #D6E5F2;
+  font-family: var(--font-geist-sans), -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #040C18; }
+::-webkit-scrollbar-thumb { background: #2C5F96; border-radius: 2px; }
+
+/* ── Animations ── */
+@keyframes aurora-drift {
+  0%, 100% { transform: translate(0%, 0%) scale(1); opacity: 0.5; }
+  33%       { transform: translate(3%, -3%) scale(1.06); opacity: 0.7; }
+  66%       { transform: translate(-2%, 2%) scale(0.96); opacity: 0.45; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ── Hero background ── */
+.aurora-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 8% 20%,  rgba(44, 95, 150, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 90% 80%,  rgba(64, 128, 192, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 70% at 50% 50%,  rgba(28, 72, 128, 0.06) 0%, transparent 65%),
+    #040C18;
+}
+
+/* ── Grid overlay ── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(64,128,192,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(64,128,192,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ── Typography ── */
+.gradient-text {
+  background: linear-gradient(135deg, #4A90D0 0%, #6AAEE0 50%, #A8CCE8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4A90D0;
+}
+
+/* ── Cards ── */
+.glass-card {
+  background: rgba(8, 22, 42, 0.70);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(64, 128, 192, 0.12);
+}
+
+.glass-card-hover {
+  transition: all 0.25s ease;
+}
+.glass-card-hover:hover {
+  background: rgba(44, 95, 150, 0.10);
+  border-color: rgba(74, 144, 208, 0.28);
+  box-shadow: 0 4px 32px rgba(44, 95, 150, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  background: linear-gradient(135deg, #2C5F96, #4A90D0);
+  color: #E8F2FA;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(44, 95, 150, 0.35);
+  background: linear-gradient(135deg, #3470A8, #5B9FD8);
+}
+
+.btn-outline {
+  border: 1px solid rgba(74, 144, 208, 0.35);
+  color: #6AAEE0;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-outline:hover {
+  background: rgba(74, 144, 208, 0.08);
+  border-color: rgba(74, 144, 208, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(44, 95, 150, 0.15);
+}
+
+/* ── Tags ── */
+.oslo-tag {
+  background: rgba(44, 95, 150, 0.14);
+  border: 1px solid rgba(74, 144, 208, 0.28);
+  color: #6AAEE0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.madrid-tag {
+  background: rgba(184, 117, 90, 0.10);
+  border: 1px solid rgba(184, 117, 90, 0.28);
+  color: #C4845A;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
 }
