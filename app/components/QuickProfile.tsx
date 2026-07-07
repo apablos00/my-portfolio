@@ -66,7 +66,7 @@ export default function QuickProfile() {
           <div className="grid sm:grid-cols-2 gap-3">
             {essentials.map((item, i) => (
               <motion.div
-                key={item.label}
+                key={item.value}
                 initial={{ opacity: 0, y: 12 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.35 + i * 0.07 }}
