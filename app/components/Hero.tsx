@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const greetings = [
   { lang: "Norsk", flag: "🇳🇴", file: "/audio/norsk.mp4", word: "Hei" },
@@ -10,6 +11,7 @@ const greetings = [
 ];
 
 export default function Hero() {
+  const { t } = useLanguage();
   const [playing, setPlaying] = useState<string | null>(null);
   const audioRefs = useRef<Record<string, HTMLAudioElement | null>>({});
 
@@ -74,22 +76,15 @@ export default function Hero() {
             </div>
 
             {/* Personal intro */}
-            <div className="space-y-3 max-w-xl">
+            <div className="max-w-xl">
               <p className="text-[#B0C8DE] text-lg leading-relaxed">
-                I'm Alejandro, from Madrid, Spain. Since high school I've been passionate
-                about maths and sciences, which led me to build a strong background in
-                Computer Science and AI, and to spend two years working as a Data and IT Consultant.
-              </p>
-              <p className="text-[#7A95AE] text-base leading-relaxed">
-                Now I'm building the business side of my career at the intersection of
-                technology and entrepreneurship, here in Oslo. Outside of work, I'm a
-                passionate traveller, into sports, international cuisine and fashion.
+                {t.hero.intro}
               </p>
             </div>
 
             {/* Audio greetings */}
             <div>
-              <p className="section-label mb-4">Here&apos;s Alejandro</p>
+              <p className="section-label mb-4">{t.hero.hereIs}</p>
               <div className="flex items-center gap-3 flex-wrap">
                 {greetings.map(({ lang, flag, file, word }) => (
                   <div key={lang}>
@@ -132,28 +127,40 @@ export default function Hero() {
 
             {/* CTAs */}
             <div>
-              <p className="section-label mb-4">Want to know more or reach out?</p>
+              <p className="section-label mb-4">{t.hero.wantToConnect}</p>
             <div className="flex items-center gap-5 flex-wrap">
               <a
                 href="/Alejandro_Pablos_CV_startup_2026.pdf"
                 download
-                className="text-xs font-medium text-[#6B7FA3] hover:text-[#8AACCA] transition-colors duration-200 underline underline-offset-4 decoration-[#4A90D030] hover:decoration-[#4A90D080]"
+                className="flex items-center gap-1.5 text-xs font-medium text-[#6B7FA3] hover:text-[#8AACCA] transition-colors duration-200 underline underline-offset-4 decoration-[#4A90D030] hover:decoration-[#4A90D080]"
               >
-                Download CV
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
+                  <path d="M6 2.5h9l4.5 4.5V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+                  <path d="M15 2.5V7a1 1 0 0 0 1 1h4" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+                  <path d="M8.5 13h7M8.5 16.2h7M8.5 9.8h3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                </svg>
+                {t.hero.downloadCv}
               </a>
               <a
                 href="https://www.linkedin.com/in/alejandro-pablos-sanchez"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-medium text-[#6B7FA3] hover:text-[#8AACCA] transition-colors duration-200 underline underline-offset-4 decoration-[#4A90D030] hover:decoration-[#4A90D080]"
+                className="flex items-center gap-1.5 text-xs font-medium text-[#6B7FA3] hover:text-[#8AACCA] transition-colors duration-200 underline underline-offset-4 decoration-[#4A90D030] hover:decoration-[#4A90D080]"
               >
-                LinkedIn
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
+                  <path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002ZM7 8.48H3V21h4V8.48ZM13.32 8.48H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.68-2.91V8.48Z" fill="currentColor" />
+                </svg>
+                {t.hero.linkedin}
               </a>
               <a
                 href="mailto:alejandropablos@hotmail.es"
-                className="text-xs font-medium text-[#6B7FA3] hover:text-[#8AACCA] transition-colors duration-200 underline underline-offset-4 decoration-[#4A90D030] hover:decoration-[#4A90D080]"
+                className="flex items-center gap-1.5 text-xs font-medium text-[#6B7FA3] hover:text-[#8AACCA] transition-colors duration-200 underline underline-offset-4 decoration-[#4A90D030] hover:decoration-[#4A90D080]"
               >
-                Email
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
+                  <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" stroke="currentColor" strokeWidth="1.6" />
+                  <path d="M3.5 6.5 12 13l8.5-6.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {t.hero.email}
               </a>
             </div>
             </div>

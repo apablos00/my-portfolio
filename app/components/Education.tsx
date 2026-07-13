@@ -1,63 +1,22 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const arc = [
-  { year: "2018", label: "BSc", color: "#7A9EC0" },
-  { year: "2021", label: "Erasmus", color: "#4A90D0" },
-  { year: "2022", label: "MSc AI", color: "#6AAEE0" },
-  { year: "2025", label: "MSc Innovation", color: "#90C6EA" },
+  { year: "2018–22", key: "bsc" as const, color: "#C4845A" },
+  { year: "2022", key: "mscAi" as const, color: "#C4845A" },
+  { year: "2025", key: "mscInnovation" as const, color: "#4A90D0" },
 ];
 
 const education = [
-  {
-    chapter: "Current",
-    degree: "MSc Entrepreneurship & Innovation Management",
-    school: "University of Oslo (UiO)",
-    period: "Aug 2025 – Present",
-    location: "Oslo, Norway",
-    color: "#4A90D0",
-    status: "current" as const,
-    storyTitle: "The Oslo Chapter",
-    highlights: [
-      "Focus on innovation strategy, startup ecosystem, and venture creation",
-      "Active in iHub and StartupLab Oslo through Insj UiO advisor role",
-      "Combining technical AI background with entrepreneurial frameworks",
-    ],
-  },
-  {
-    chapter: "2022–23",
-    degree: "MSc Applied Artificial Intelligence",
-    school: "Carlos III de Madrid University",
-    period: "Sep 2022 – Sep 2023",
-    location: "Madrid, Spain",
-    color: "#6AAEE0",
-    status: "complete" as const,
-    storyTitle: "Going Deeper into AI",
-    highlights: [
-      "Machine Learning, Computer Vision, Deep Learning",
-      "Master thesis: Computer Vision (YOLO) for industrial defect detection, ITP Aero",
-      "Thesis grade: 10/10, Honors",
-    ],
-  },
-  {
-    chapter: "2018–22",
-    degree: "BSc Computer Engineering",
-    school: "Carlos III de Madrid University",
-    period: "Sep 2018 – Sep 2022",
-    location: "Madrid + Trondheim, Norway",
-    color: "#7A9EC0",
-    status: "complete" as const,
-    storyTitle: "The Foundation · The Norway Spark",
-    highlights: [
-      "Full degree conducted entirely in English",
-      "Erasmus+ exchange at NTNU, Trondheim, one full academic year",
-      "First contact with Norway, Norwegian culture, and Nordic work values",
-    ],
-  },
+  { id: "oslo" as const, color: "#4A90D0", status: "current" as const },
+  { id: "msc" as const, color: "#C4845A", status: "complete" as const },
+  { id: "bsc" as const, color: "#C4845A", status: "complete" as const },
 ];
 
 export default function Education() {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -78,7 +37,7 @@ export default function Education() {
           className="mb-12"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-[#D6E5F2] mb-4">
-            Academic background
+            {t.education.heading}
           </h2>
         </motion.div>
 
@@ -87,33 +46,37 @@ export default function Education() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="glass-card rounded-2xl px-8 py-6 mb-12 relative overflow-hidden"
+          className="glass-card rounded-2xl px-5 sm:px-8 pt-6 pb-7 mb-12 relative overflow-hidden"
         >
-          <div className="flex items-center justify-between relative">
+          <div className="relative">
             <div
-              className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2"
-              style={{ background: "linear-gradient(90deg, #7A9EC0, #4A90D0, #6AAEE0, #90C6EA)" }}
+              className="absolute left-0 right-0 h-px"
+              style={{ top: "5px", background: "linear-gradient(90deg, #C4845A, #C4845A 60%, #4A90D0)" }}
             />
-            {arc.map((node) => (
-              <div key={node.year} className="flex flex-col items-center gap-2 relative z-10">
-                <div
-                  className="w-2.5 h-2.5 rounded-full border-2"
-                  style={{ borderColor: node.color, background: "#061526", boxShadow: `0 0 8px ${node.color}70` }}
-                />
-                <span className="text-[10px] font-bold tracking-widest uppercase mt-1" style={{ color: node.color }}>
-                  {node.label}
-                </span>
-                <span className="text-[10px] text-[#4E6480]">{node.year}</span>
-              </div>
-            ))}
+            <div className="grid grid-cols-3">
+              {arc.map((node) => (
+                <div key={node.year} className="flex flex-col items-center text-center gap-1.5 relative z-10 px-1">
+                  <div
+                    className="w-2.5 h-2.5 rounded-full border-2 flex-shrink-0"
+                    style={{ borderColor: node.color, background: "#0B1F38", boxShadow: `0 0 8px ${node.color}70` }}
+                  />
+                  <span className="text-[10px] font-bold tracking-widest uppercase leading-tight mt-2.5" style={{ color: node.color }}>
+                    {t.education.arc[node.key]}
+                  </span>
+                  <span className="text-[10px] text-[#4E6480] leading-none">{node.year}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
 
         {/* Education cards */}
         <div className="flex flex-col gap-5">
-          {education.map((edu, i) => (
+          {education.map((edu, i) => {
+            const card = t.education.cards[edu.id];
+            return (
             <motion.div
-              key={edu.degree}
+              key={edu.id}
               initial={{ opacity: 0, y: 32 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, delay: 0.3 + i * 0.12 }}
@@ -128,33 +91,32 @@ export default function Education() {
                 <div className="flex items-start gap-4">
                   <div>
                     <p className="text-[10px] font-bold tracking-widest uppercase mb-1.5" style={{ color: edu.color }}>
-                      {edu.chapter}
+                      {card.chapter}
                     </p>
-                    <h3 className="font-bold text-[#D6E5F2] text-base leading-tight mb-1">{edu.degree}</h3>
-                    <p className="font-medium text-sm" style={{ color: edu.color }}>{edu.school}</p>
-                    <p className="text-[#4E6480] text-xs mt-1">{edu.location} · {edu.period}</p>
+                    <h3 className="font-bold text-[#D6E5F2] text-base leading-tight mb-1">{card.degree}</h3>
+                    <p className="font-medium text-sm" style={{ color: edu.color }}>{card.school}</p>
+                    <p className="text-[#4E6480] text-xs mt-1">{card.location} · {card.period}</p>
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-2">
                   {edu.status === "current" && (
                     <span className="inline-flex items-center gap-1.5 text-xs font-semibold" style={{ color: "#6AAEE0" }}>
                       <span className="w-1.5 h-1.5 rounded-full bg-[#4A90D0] animate-pulse" />
-                      Current
+                      {t.education.current}
                     </span>
                   )}
                 </div>
               </div>
 
-              <ul className="flex flex-col gap-2">
-                {edu.highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-2.5 text-sm text-[#7A95AE] leading-snug">
-                    <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0" style={{ background: edu.color }} />
-                    {h}
-                  </li>
-                ))}
-              </ul>
+              <div className="pt-4 mt-1" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                <p className="text-[11px] font-semibold uppercase tracking-wide mb-1.5" style={{ color: edu.color }}>
+                  {card.storyTitle}
+                </p>
+                <p className="text-sm text-[#8FA6BE] leading-relaxed">{card.story}</p>
+              </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

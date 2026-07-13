@@ -5,6 +5,8 @@ import TechProjects from "./components/TechProjects";
 import BizProjects from "./components/BizProjects";
 import Education from "./components/Education";
 import MeInPictures from "./components/MeInPictures";
+import FunFacts from "./components/FunFacts";
+import LetsConnect from "./components/LetsConnect";
 
 export default function Home() {
   return (
@@ -12,10 +14,12 @@ export default function Home() {
       <Navigation />
       <Hero />
       <AboutMe />
+      <Education />
       <TechProjects />
       <BizProjects />
-      <Education />
       <MeInPictures />
+      <FunFacts />
+      <LetsConnect />
     </main>
   );
 }
