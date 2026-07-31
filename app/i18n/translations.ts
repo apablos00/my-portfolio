@@ -1,54 +1,45 @@
 const en = {
   nav: {
     profile: "Me in 2 min",
-    tech: "Tech projects",
-    biz: "Entrepreneurial projects",
-    education: "Academic background",
-    pictures: "My timeline",
+    projects: "My projects",
+    education: "My background",
+    moreAboutMe: "More about me",
     connect: "Let's connect",
   },
   hero: {
     intro:
-      "I'm ambitious and I've chosen to build my career on the business side of tech. Moving abroad, from Madrid to Trondheim and now Oslo, is part of that: always growing, always looking to build something that matters.",
-    hereIs: "Here's Alejandro",
+      "Hello, my name is Alejandro and I come from Spain. My background is in Artificial Intelligence and Business Innovation, and I'm deeply passionate about edtech. After a great experience in Trondheim a few years ago, I'm back in Oslo, looking to build an ambitious career at the intersection of technology and business. I'm open to both startup and corporate opportunities where I can make a real impact.",
     wantToConnect: "Want to connect?",
-    downloadCv: "Download CV",
     linkedin: "LinkedIn",
     email: "Email",
   },
   aboutMe: {
     heading: "Me in 2 min",
-    p1: "I grew up in Madrid with a passion for maths and sciences that started in high school and never really faded. That passion led me to study Computer Engineering and then a Master's in Applied AI, building a solid technical foundation along the way.",
-    p2: "After graduating, I spent two years working as a Data and IT Consultant, helping financial institutions build data platforms and analytics infrastructure. It was good work, but I kept feeling drawn to the bigger questions: not just how to build something, but why and for whom.",
-    p3: "That shift brought me to Oslo. I'm now studying Entrepreneurship and Innovation at UiO and advising startups at iHub and StartupLab, building the business side of my career at the intersection of technology and entrepreneurship. At a more personal level, I'm passionate about travelling, sports, international cuisine and fashion.",
+    p1: "I'm Alejandro, born in Madrid, Spain, right in the middle of 2000. Ever since I was a child, I've been passionate about numbers and technology. That passion eventually led me to become a Data Analytics and AI expert. Along the way, I realised what excites me most isn't deep AI research or optimization. It's unlocking the power of AI for real-world scenarios.",
+    p2: "This pushed me toward a role as an IT and Data Consultant, where I spent two years working across a variety of software and data-analytics projects. Over time, I felt a purely technical role wasn't the right fit for me. I was drawn to the bigger picture instead, shaping ideas and improving how teams work. Today, I'm an engineer with a strong technical foundation who also brings real capabilities in project planning, communication and teamwork.",
+    p3: "Outside of work, I can't imagine a life without travelling, staying active in sports (I'm big into padel) or taking a relaxed walk in nature to unwind on the weekends.",
   },
-  techProjects: {
-    heading: "Tech projects",
-    problemLabel: "Problem",
-    solutionLabel: "Solution",
+  projects: {
+    heading: "My projects",
+    techLabel: "Tech projects",
+    bizLabel: "Entrepreneurial projects",
     viewOnGithub: "View on GitHub",
     privateRepo: "Private repo",
-    projects: {
+    tech: {
       chatbot: {
         tagline: "LLM embedded in everyday messaging",
-        problem: "I wanted to test how an AI assistant would behave inside an app I already use daily, not a separate tool I had to open.",
-        solution: "I embedded an LLM directly into WhatsApp, handling the full conversation flow with message routing and context.",
+        description: "A fast demo built to test how an AI assistant behaves inside an app I already use daily, WhatsApp, instead of a separate tool. It handles the full conversation flow, from message routing to context, directly inside the chat.",
       },
       autius: {
         tagline: "Driving school slot monitor",
-        problem: "I had to open the booking website every 30 minutes to check if a driving slot had opened. It was random, unpredictable, and I kept missing them.",
-        solution: "I built a Python scraper that monitors the page 24/7 and sends me a Discord alert the instant a slot opens.",
+        description: "While getting my driving license, lesson slots opened at random, unpredictable times and were gone within minutes. I built a Python scraper that monitors the booking page around the clock and sends me an instant Discord alert the moment a new slot opens.",
       },
       tipster: {
         tagline: "AI-powered bet replication",
-        problem: "I follow sports tipsters on Telegram to track their strategies, but they post at all hours. I kept missing bets, which skewed my analysis.",
-        solution: "I built an AI pipeline that reads their Telegram messages, extracts the bet parameters and places them automatically across two bookmakers.",
+        description: "I follow sports tipsters on Telegram to benchmark their strategies, but they post forecasts at all hours, so I kept missing bets. I built an AI pipeline that reads their Telegram messages, extracts the bet parameters and places the bets automatically across two bookmakers.",
       },
     },
-  },
-  bizProjects: {
-    heading: "Entrepreneurial projects",
-    projects: {
+    biz: {
       eksamenboost: {
         tagline: "Exam prep built for Norwegian universities",
         description: "After years mentoring UiO students, I kept seeing the same gap: generic study resources didn't match the specific courses students were failing. I built a platform with course-specific quizzes, coding exercises and exam simulators that actually reflect what's tested.",
@@ -56,47 +47,38 @@ const en = {
       },
       clearterms: {
         tagline: "AI adoption platform for SMEs",
-        description: "The biggest blocker to AI adoption in SMEs isn't technology — it's the communication gap between technical teams and decision-makers. ClearTerms makes AI opportunities legible to executives in business terms, not technical ones. Built during my MSc at UiO.",
+        description: "The biggest blocker to AI adoption in SMEs isn't technology. It's the communication gap between technical teams and decision-makers. ClearTerms makes AI opportunities legible to executives in business terms, not technical ones. Built during the first year of my Master's in Entrepreneurship and Innovation Management at UiO.",
         status: "MSc project · prototype built",
       },
     },
   },
   education: {
-    heading: "Academic background",
-    current: "Current",
+    heading: "My background",
     arc: { bsc: "BSc + Erasmus", mscAi: "MSc AI", mscInnovation: "MSc Innovation" },
     cards: {
       oslo: {
         chapter: "Current",
         degree: "MSc Entrepreneurship & Innovation Management",
         school: "University of Oslo (UiO)",
-        period: "Aug 2025 – Present",
-        location: "Oslo, Norway",
-        storyTitle: "The Oslo Chapter",
-        story: "I'm learning how to turn good ideas into real businesses, working closely with Oslo's startup community.",
       },
       msc: {
         chapter: "2022–23",
         degree: "MSc Applied Artificial Intelligence",
         school: "Carlos III de Madrid University",
-        period: "Sep 2022 – Sep 2023",
-        location: "Madrid, Spain",
-        storyTitle: "Going Deeper into AI",
-        story: "I spent a year learning how machines can see and learn and finished my thesis with the best possible grade.",
       },
       bsc: {
         chapter: "2018–22",
         degree: "BSc Computer Engineering",
         school: "Carlos III de Madrid University",
-        period: "Sep 2018 – Sep 2022",
-        location: "Carlos III Madrid Uni + NTNU Trondheim, Gløshaugen campus",
-        storyTitle: "The Foundation · The Norway Spark",
-        story: "I built my foundation in engineering and a year living in Norway is what made me want to come back.",
       },
     },
   },
+  moreAboutMe: {
+    heading: "More about me",
+    timelineLabel: "My timeline",
+    funFactsLabel: "Fun facts",
+  },
   meInPictures: {
-    heading: "My timeline",
     now: "Now",
     chapters: {
       oslo: {
@@ -132,7 +114,6 @@ const en = {
     },
   },
   funFacts: {
-    heading: "Fun facts",
     instructions: "These are 3 fun facts about me. I have my favourite one, how about you? Play and rank them :)",
     rankMost: "Most surprising",
     rankLeast: "Least surprising",
@@ -159,54 +140,45 @@ const en = {
 const es: typeof en = {
   nav: {
     profile: "Sobre mí en 2 min",
-    tech: "Proyectos tech",
-    biz: "Proyectos emprendedores",
-    education: "Formación académica",
-    pictures: "Mi trayectoria",
+    projects: "Mis proyectos",
+    education: "Mi formación",
+    moreAboutMe: "Más sobre mí",
     connect: "Conectemos",
   },
   hero: {
     intro:
-      "Soy ambicioso y he elegido construir mi carrera en el lado de negocio de la tecnología. Mudarme al extranjero, de Madrid a Trondheim y ahora Oslo, forma parte de eso: crecer siempre, buscando siempre construir algo que importe.",
-    hereIs: "Aquí Alejandro",
+      "Hola, me llamo Alejandro y vengo de España. Mi formación es en Inteligencia Artificial e Innovación Empresarial, y soy un gran apasionado del edtech. Tras una gran experiencia en Trondheim hace unos años, he vuelto a Oslo con ganas de construir una carrera ambiciosa en la intersección entre tecnología y negocio. Estoy abierto tanto a oportunidades en startups como en empresas consolidadas donde pueda sentirme útil y generar un gran impacto.",
     wantToConnect: "¿Quieres conectar?",
-    downloadCv: "Descargar CV",
     linkedin: "LinkedIn",
     email: "Correo",
   },
   aboutMe: {
     heading: "Sobre mí en 2 min",
-    p1: "Crecí en Madrid con una pasión por las matemáticas y las ciencias que empezó en el instituto y nunca desapareció. Esa pasión me llevó a estudiar Ingeniería Informática y después un máster en Inteligencia Artificial Aplicada, construyendo por el camino una base técnica sólida.",
-    p2: "Al graduarme, pasé dos años trabajando como consultor de datos e IT, ayudando a entidades financieras a construir plataformas de datos e infraestructuras de analítica. Era un buen trabajo, pero seguía sintiéndome atraído por preguntas más grandes: no solo cómo construir algo, sino por qué y para quién.",
-    p3: "Ese cambio me trajo a Oslo. Ahora estudio Emprendimiento e Innovación en la UiO y asesoro startups en iHub y StartupLab, construyendo el lado de negocio de mi carrera en la intersección entre tecnología y emprendimiento. A nivel más personal, me apasiona viajar, el deporte, la cocina internacional y la moda.",
+    p1: "Soy Alejandro, nacido en Madrid, España, justo a mediados de 2000. Desde niño he sido un apasionado de los números y la tecnología. Esa pasión me llevó finalmente a convertirme en experto en Análisis de Datos e Inteligencia Artificial. Por el camino descubrí que lo que más me apasiona no es la investigación profunda en IA ni la optimización. Es desbloquear el potencial de la IA en escenarios reales.",
+    p2: "Esto me llevó a trabajar como consultor de IT y Datos, donde durante dos años participé en una variedad de proyectos de software y analítica de datos. Con el tiempo sentí que un rol puramente técnico no encajaba conmigo. Me atraía más la visión de conjunto de los proyectos y mejorar cómo trabajan los equipos. Hoy soy un ingeniero con una sólida base técnica que también aporta verdaderas capacidades de planificación de proyectos, comunicación y trabajo en equipo.",
+    p3: "Fuera del trabajo, no concibo la vida sin viajar, practicar deporte (soy un gran aficionado al pádel) o dar un paseo tranquilo por la naturaleza para desconectar los fines de semana.",
   },
-  techProjects: {
-    heading: "Proyectos tech",
-    problemLabel: "Problema",
-    solutionLabel: "Solución",
+  projects: {
+    heading: "Mis proyectos",
+    techLabel: "Proyectos tech",
+    bizLabel: "Proyectos emprendedores",
     viewOnGithub: "Ver en GitHub",
     privateRepo: "Repositorio privado",
-    projects: {
+    tech: {
       chatbot: {
         tagline: "Un LLM integrado en la mensajería diaria",
-        problem: "Quería probar cómo se comportaría un asistente de IA dentro de una app que ya uso a diario, no en una herramienta aparte que tuviera que abrir.",
-        solution: "Integré un LLM directamente en WhatsApp, gestionando todo el flujo de conversación con enrutamiento de mensajes y contexto.",
+        description: "Una demo rápida construida para probar cómo se comporta un asistente de IA dentro de una app que ya uso a diario, WhatsApp, en lugar de una herramienta aparte. Gestiona todo el flujo de conversación, desde el enrutamiento de mensajes hasta el contexto, directamente en el chat.",
       },
       autius: {
         tagline: "Monitor de plazas de autoescuela",
-        problem: "Tenía que abrir la web de reservas cada 30 minutos para ver si se había liberado una plaza. Era aleatorio, impredecible, y siempre se me escapaban.",
-        solution: "Construí un scraper en Python que vigila la página 24/7 y me manda una alerta a Discord en el instante en que se libera una plaza.",
+        description: "Mientras sacaba el carné de conducir, las plazas de las clases se abrían en horarios aleatorios e impredecibles y desaparecían en minutos. Construí un scraper en Python que vigila la página de reservas las 24 horas y me manda una alerta instantánea a Discord en cuanto se libera una plaza nueva.",
       },
       tipster: {
         tagline: "Réplica de apuestas con IA",
-        problem: "Sigo a tipsters deportivos en Telegram para seguir sus estrategias, pero publican a cualquier hora. Se me escapaban apuestas, lo que distorsionaba mi análisis.",
-        solution: "Construí un pipeline de IA que lee sus mensajes de Telegram, extrae los parámetros de la apuesta y las coloca automáticamente en dos casas de apuestas.",
+        description: "Sigo a tipsters deportivos en Telegram para comparar sus estrategias, pero publican sus pronósticos a cualquier hora, así que se me escapaban apuestas. Construí un pipeline de IA que lee sus mensajes de Telegram, extrae los parámetros de la apuesta y las coloca automáticamente en dos casas de apuestas.",
       },
     },
-  },
-  bizProjects: {
-    heading: "Proyectos emprendedores",
-    projects: {
+    biz: {
       eksamenboost: {
         tagline: "Preparación de exámenes para universidades noruegas",
         description: "Tras años haciendo mentoring a estudiantes de la UiO, veía siempre el mismo problema: los recursos de estudio genéricos no encajaban con las asignaturas concretas en las que suspendían. Construí una plataforma con cuestionarios específicos por curso, ejercicios de programación y simuladores de examen que reflejan lo que realmente se evalúa.",
@@ -214,47 +186,38 @@ const es: typeof en = {
       },
       clearterms: {
         tagline: "Plataforma de adopción de IA para pymes",
-        description: "El mayor obstáculo para la adopción de IA en las pymes no es la tecnología, es la brecha de comunicación entre los equipos técnicos y quienes toman las decisiones. ClearTerms hace que las oportunidades de IA sean comprensibles para los directivos en términos de negocio, no técnicos. Construido durante mi máster en la UiO.",
+        description: "El mayor obstáculo para la adopción de IA en las pymes no es la tecnología. Es la brecha de comunicación entre los equipos técnicos y quienes toman las decisiones. ClearTerms hace que las oportunidades de IA sean comprensibles para los directivos en términos de negocio, no técnicos. Construido durante el primer año de mi Máster en Emprendimiento e Innovación en la UiO.",
         status: "Proyecto de máster · prototipo construido",
       },
     },
   },
   education: {
-    heading: "Formación académica",
-    current: "Actual",
+    heading: "Mi formación",
     arc: { bsc: "Grado + Erasmus", mscAi: "Máster IA", mscInnovation: "Máster Innovación" },
     cards: {
       oslo: {
         chapter: "Actual",
         degree: "Máster en Emprendimiento e Innovación",
         school: "Universidad de Oslo (UiO)",
-        period: "Ago 2025 – Presente",
-        location: "Oslo, Noruega",
-        storyTitle: "El capítulo de Oslo",
-        story: "Estoy aprendiendo a convertir buenas ideas en negocios reales, trabajando codo con codo con la comunidad startup de Oslo.",
       },
       msc: {
         chapter: "2022–23",
         degree: "Máster en Inteligencia Artificial Aplicada",
         school: "Universidad Carlos III de Madrid",
-        period: "Sep 2022 – Sep 2023",
-        location: "Madrid, España",
-        storyTitle: "Profundizando en la IA",
-        story: "Pasé un año aprendiendo cómo las máquinas pueden ver y aprender, y terminé mi tesis con la mejor nota posible.",
       },
       bsc: {
         chapter: "2018–22",
         degree: "Grado en Ingeniería Informática",
         school: "Universidad Carlos III de Madrid",
-        period: "Sep 2018 – Sep 2022",
-        location: "Uni Carlos III Madrid + NTNU Trondheim, campus Gløshaugen",
-        storyTitle: "La base · La chispa de Noruega",
-        story: "Construí mi base en ingeniería, y un año viviendo en Noruega fue lo que hizo que quisiera volver.",
       },
     },
   },
+  moreAboutMe: {
+    heading: "Más sobre mí",
+    timelineLabel: "Mi trayectoria",
+    funFactsLabel: "Datos curiosos",
+  },
   meInPictures: {
-    heading: "Mi trayectoria",
     now: "Ahora",
     chapters: {
       oslo: {
@@ -290,7 +253,6 @@ const es: typeof en = {
     },
   },
   funFacts: {
-    heading: "Datos curiosos",
     instructions: "Estos son 3 datos curiosos sobre mí. Yo ya tengo mi favorito, ¿y tú? Juega y ordénalos :)",
     rankMost: "Lo más sorprendente",
     rankLeast: "Lo menos sorprendente",

@@ -31,8 +31,8 @@ export default function AboutMe() {
 
           <div className="space-y-5 max-w-3xl">
             <p className="text-[#B0C8DE] text-lg leading-relaxed">{t.aboutMe.p1}</p>
-            <p className="text-[#8AACCA] text-base leading-relaxed">{t.aboutMe.p2}</p>
-            <p className="text-[#8AACCA] text-base leading-relaxed">{t.aboutMe.p3}</p>
+            <p className="text-[#B0C8DE] text-lg leading-relaxed">{t.aboutMe.p2}</p>
+            <p className="text-[#B0C8DE] text-lg leading-relaxed">{t.aboutMe.p3}</p>
           </div>
         </motion.div>
 

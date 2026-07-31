@@ -1,11 +1,9 @@
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
 import AboutMe from "./components/AboutMe";
-import TechProjects from "./components/TechProjects";
-import BizProjects from "./components/BizProjects";
+import Projects from "./components/Projects";
 import Education from "./components/Education";
-import MeInPictures from "./components/MeInPictures";
-import FunFacts from "./components/FunFacts";
+import MoreAboutMe from "./components/MoreAboutMe";
 import LetsConnect from "./components/LetsConnect";
 
 export default function Home() {
@@ -15,10 +13,8 @@ export default function Home() {
       <Hero />
       <AboutMe />
       <Education />
-      <TechProjects />
-      <BizProjects />
-      <MeInPictures />
-      <FunFacts />
+      <Projects />
+      <MoreAboutMe />
       <LetsConnect />
     </main>
   );

@@ -1,10 +1,8 @@
 "use client";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { useLanguage } from "../i18n/LanguageContext";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "";
 
 const LinkedInIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
@@ -25,6 +23,11 @@ export default function LetsConnect() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [expanded, setExpanded] = useState<number | null>(null);
+  const [origin, setOrigin] = useState("");
+
+  useEffect(() => {
+    setOrigin(window.location.origin);
+  }, []);
 
   const connections = [
     {
@@ -38,9 +41,9 @@ export default function LetsConnect() {
     {
       label: t.letsConnect.cvLabel,
       sub: t.letsConnect.cvSub,
-      value: siteUrl ? `${siteUrl}/Alejandro_Pablos_CV_startup_2026.pdf` : "",
+      value: origin ? `${origin}/Alejandro_Pablos_CV_startup_2026.pdf` : "",
       href: "/Alejandro_Pablos_CV_startup_2026.pdf",
-      color: "#34D399",
+      color: "#4A90D0",
       icon: CvIcon,
     },
   ];

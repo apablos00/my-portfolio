@@ -6,9 +6,8 @@ import { useLanguage } from "../i18n/LanguageContext";
 const navItems = [
   { href: "#profile", key: "profile" as const },
   { href: "#education", key: "education" as const },
-  { href: "#tech-projects", key: "tech" as const },
-  { href: "#biz-projects", key: "biz" as const },
-  { href: "#me-in-pictures", key: "pictures" as const },
+  { href: "#projects", key: "projects" as const },
+  { href: "#more-about-me", key: "moreAboutMe" as const },
   { href: "#lets-connect", key: "connect" as const },
 ];
 
@@ -92,7 +91,7 @@ export default function Navigation() {
         </span>
       </button>
 
-      <div className="max-w-6xl mx-auto flex items-center justify-center">
+      <div className="max-w-6xl mx-auto flex items-center justify-end md:justify-center">
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-7">
           {navItems.map((l) => {
@@ -121,7 +120,7 @@ export default function Navigation() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-1.5 p-2 mr-20 sm:mr-24"
           aria-label="Toggle menu"
         >
           <span className={`block w-6 h-0.5 bg-[#4A90D0] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />

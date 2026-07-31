@@ -3,16 +3,18 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
 
+const ACCENT = "#4A90D0";
+
 const arc = [
-  { year: "2018–22", key: "bsc" as const, color: "#C4845A" },
-  { year: "2022", key: "mscAi" as const, color: "#C4845A" },
-  { year: "2025", key: "mscInnovation" as const, color: "#4A90D0" },
+  { year: "2018–22", key: "bsc" as const },
+  { year: "2022", key: "mscAi" as const },
+  { year: "2025", key: "mscInnovation" as const },
 ];
 
 const education = [
-  { id: "oslo" as const, color: "#4A90D0", status: "current" as const },
-  { id: "msc" as const, color: "#C4845A", status: "complete" as const },
-  { id: "bsc" as const, color: "#C4845A", status: "complete" as const },
+  { id: "oslo" as const },
+  { id: "msc" as const },
+  { id: "bsc" as const },
 ];
 
 export default function Education() {
@@ -51,16 +53,16 @@ export default function Education() {
           <div className="relative">
             <div
               className="absolute left-0 right-0 h-px"
-              style={{ top: "5px", background: "linear-gradient(90deg, #C4845A, #C4845A 60%, #4A90D0)" }}
+              style={{ top: "5px", background: `${ACCENT}40` }}
             />
             <div className="grid grid-cols-3">
               {arc.map((node) => (
                 <div key={node.year} className="flex flex-col items-center text-center gap-1.5 relative z-10 px-1">
                   <div
                     className="w-2.5 h-2.5 rounded-full border-2 flex-shrink-0"
-                    style={{ borderColor: node.color, background: "#0B1F38", boxShadow: `0 0 8px ${node.color}70` }}
+                    style={{ borderColor: ACCENT, background: "#0B1F38", boxShadow: `0 0 8px ${ACCENT}70` }}
                   />
-                  <span className="text-[10px] font-bold tracking-widest uppercase leading-tight mt-2.5" style={{ color: node.color }}>
+                  <span className="text-[10px] font-bold tracking-widest uppercase leading-tight mt-2.5" style={{ color: ACCENT }}>
                     {t.education.arc[node.key]}
                   </span>
                   <span className="text-[10px] text-[#4E6480] leading-none">{node.year}</span>
@@ -84,36 +86,14 @@ export default function Education() {
             >
               <div
                 className="absolute top-0 left-0 right-0 h-px"
-                style={{ background: `linear-gradient(90deg, ${edu.color}80, transparent)` }}
+                style={{ background: `linear-gradient(90deg, ${ACCENT}80, transparent)` }}
               />
 
-              <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                <div className="flex items-start gap-4">
-                  <div>
-                    <p className="text-[10px] font-bold tracking-widest uppercase mb-1.5" style={{ color: edu.color }}>
-                      {card.chapter}
-                    </p>
-                    <h3 className="font-bold text-[#D6E5F2] text-base leading-tight mb-1">{card.degree}</h3>
-                    <p className="font-medium text-sm" style={{ color: edu.color }}>{card.school}</p>
-                    <p className="text-[#4E6480] text-xs mt-1">{card.location} · {card.period}</p>
-                  </div>
-                </div>
-                <div className="flex flex-col items-end gap-2">
-                  {edu.status === "current" && (
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold" style={{ color: "#6AAEE0" }}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#4A90D0] animate-pulse" />
-                      {t.education.current}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              <div className="pt-4 mt-1" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-                <p className="text-[11px] font-semibold uppercase tracking-wide mb-1.5" style={{ color: edu.color }}>
-                  {card.storyTitle}
-                </p>
-                <p className="text-sm text-[#8FA6BE] leading-relaxed">{card.story}</p>
-              </div>
+              <p className="text-[10px] font-bold tracking-widest uppercase mb-1.5" style={{ color: ACCENT }}>
+                {card.chapter}
+              </p>
+              <h3 className="font-bold text-[#D6E5F2] text-lg leading-tight mb-1">{card.degree}</h3>
+              <p className="font-medium text-sm" style={{ color: ACCENT }}>{card.school}</p>
             </motion.div>
             );
           })}

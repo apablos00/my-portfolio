@@ -15,6 +15,11 @@ body {
   overflow-x: hidden;
 }
 
+p {
+  text-align: justify;
+  text-align-last: left;
+}
+
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #040C18; }
 ::-webkit-scrollbar-thumb { background: #2C5F96; border-radius: 2px; }
