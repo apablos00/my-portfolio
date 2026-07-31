@@ -16,8 +16,14 @@ body {
 }
 
 p {
-  text-align: justify;
-  text-align-last: left;
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  p {
+    text-align: justify;
+    text-align-last: left;
+  }
 }
 
 ::-webkit-scrollbar { width: 4px; }

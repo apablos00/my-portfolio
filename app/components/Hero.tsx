@@ -13,15 +13,15 @@ export default function Hero() {
       <div className="absolute top-0 left-0 w-[500px] h-[500px] pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(44,95,150,0.10) 0%, transparent 65%)" }} />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-28 pb-20 w-full">
-        <div className="grid lg:grid-cols-[420px_1fr] gap-16 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 sm:pt-28 pb-20 w-full">
+        <div className="grid lg:grid-cols-[420px_1fr] gap-8 lg:gap-16 items-center">
 
           {/* Photo */}
           <motion.div
             initial={{ opacity: 0, x: -32 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
+            className="relative w-60 mx-auto lg:w-full lg:mx-0"
           >
             <div className="relative rounded-2xl overflow-hidden"
               style={{ aspectRatio: "4/5", boxShadow: "0 24px 80px rgba(4,12,24,0.7)" }}>
@@ -31,7 +31,7 @@ export default function Hero() {
                 fill
                 priority
                 className="object-cover object-center"
-                sizes="420px"
+                sizes="(max-width: 1024px) 240px, 420px"
               />
             </div>
 

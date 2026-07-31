@@ -7,8 +7,8 @@ const ACCENT = "#4A90D0";
 
 const arc = [
   { year: "2018–22", key: "bsc" as const },
-  { year: "2022", key: "mscAi" as const },
-  { year: "2025", key: "mscInnovation" as const },
+  { year: "2022–23", key: "mscAi" as const },
+  { year: "2025–27", key: "mscInnovation" as const },
 ];
 
 const education = [
@@ -41,6 +41,7 @@ export default function Education() {
           <h2 className="text-4xl sm:text-5xl font-bold text-[#D6E5F2] mb-4">
             {t.education.heading}
           </h2>
+          <p className="text-[#B0C8DE] text-lg leading-relaxed max-w-3xl">{t.education.intro}</p>
         </motion.div>
 
         {/* Mini horizontal arc */}
@@ -57,15 +58,18 @@ export default function Education() {
             />
             <div className="grid grid-cols-3">
               {arc.map((node) => (
-                <div key={node.year} className="flex flex-col items-center text-center gap-1.5 relative z-10 px-1">
+                <div key={node.year} className="flex flex-col items-center text-center gap-1 relative z-10 px-1">
                   <div
                     className="w-2.5 h-2.5 rounded-full border-2 flex-shrink-0"
                     style={{ borderColor: ACCENT, background: "#0B1F38", boxShadow: `0 0 8px ${ACCENT}70` }}
                   />
                   <span className="text-[10px] font-bold tracking-widest uppercase leading-tight mt-2.5" style={{ color: ACCENT }}>
-                    {t.education.arc[node.key]}
+                    {t.education.arc[node.key].degree}
                   </span>
-                  <span className="text-[10px] text-[#4E6480] leading-none">{node.year}</span>
+                  <span className="text-[9px] text-[#7A95AE] leading-tight">
+                    {t.education.arc[node.key].school}
+                  </span>
+                  <span className="text-[10px] text-[#4E6480] leading-none mt-0.5">{node.year}</span>
                 </div>
               ))}
             </div>

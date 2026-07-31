@@ -18,6 +18,12 @@ const CvIcon = () => (
   </svg>
 );
 
+const OpenIcon = () => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
+    <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 export default function LetsConnect() {
   const { t } = useLanguage();
   const ref = useRef(null);
@@ -76,10 +82,8 @@ export default function LetsConnect() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-xl mx-auto">
           {connections.map((item, i) => (
-            <motion.button
+            <motion.div
               key={item.label}
-              type="button"
-              onClick={() => setExpanded(i)}
               initial={{ opacity: 0, scale: 0.4, rotate: i % 2 === 0 ? -8 : 8 }}
               animate={
                 inView ? { opacity: 1, scale: 1, rotate: 0 } : {}
@@ -87,31 +91,49 @@ export default function LetsConnect() {
               transition={{ type: "spring", stiffness: 220, damping: 12, delay: 0.25 + i * 0.15 }}
               whileHover={{ scale: 1.04, rotate: i % 2 === 0 ? -1.5 : 1.5 }}
               whileTap={{ scale: 0.96 }}
-              className="glass-card glass-card-hover rounded-2xl p-7 flex flex-col items-center gap-4 text-center relative overflow-hidden cursor-pointer"
+              className="glass-card glass-card-hover rounded-2xl p-7 flex flex-col items-center gap-4 text-center relative overflow-hidden"
             >
               <div
                 className="absolute top-0 left-0 right-0 h-0.5"
                 style={{ background: `linear-gradient(90deg, transparent, ${item.color}, transparent)` }}
               />
-              <div className="p-3 rounded-xl" style={{ background: "#FFFFFF" }}>
-                <QRCodeSVG
-                  value={item.value || item.href}
-                  size={116}
-                  bgColor="#FFFFFF"
-                  fgColor="#040B16"
-                  level="M"
-                />
-              </div>
-              <div className="flex flex-col items-center gap-1.5">
-                <div className="flex items-center gap-2">
-                  <span style={{ color: item.color }}>
-                    <item.icon />
-                  </span>
-                  <p className="text-sm font-semibold text-[#E8F0FE]">{item.label}</p>
+              {/* Direct one-tap open — scanning your own phone's QR code doesn't work, so mobile visitors need a real link */}
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                aria-label={t.letsConnect.openLinkInstead}
+                className="absolute top-3 right-3 z-10 flex items-center justify-center w-10 h-10 rounded-full transition-colors"
+                style={{ color: item.color, background: `${item.color}14`, border: `1px solid ${item.color}30` }}
+              >
+                <OpenIcon />
+              </a>
+              <button
+                type="button"
+                onClick={() => setExpanded(i)}
+                className="flex flex-col items-center gap-4 w-full cursor-pointer"
+              >
+                <div className="p-3 rounded-xl" style={{ background: "#FFFFFF" }}>
+                  <QRCodeSVG
+                    value={item.value || item.href}
+                    size={116}
+                    bgColor="#FFFFFF"
+                    fgColor="#040B16"
+                    level="M"
+                  />
                 </div>
-                <p className="text-[#7A95AE] text-xs">{item.sub}</p>
-              </div>
-            </motion.button>
+                <div className="flex flex-col items-center gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <span style={{ color: item.color }}>
+                      <item.icon />
+                    </span>
+                    <p className="text-sm font-semibold text-[#E8F0FE]">{item.label}</p>
+                  </div>
+                  <p className="text-[#7A95AE] text-xs">{item.sub}</p>
+                </div>
+              </button>
+            </motion.div>
           ))}
         </div>
       </div>

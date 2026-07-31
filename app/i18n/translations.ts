@@ -21,6 +21,7 @@ const en = {
   },
   projects: {
     heading: "My projects",
+    intro: "A mix of tech builds and entrepreneurial ventures, most born from a problem I personally ran into. The tech projects are quick, functional tools: scripts, bots and scrapers that solve one thing well. The entrepreneurial ones are more ambitious, built for real users rather than just to prove a point. A couple of repos are private, but I'm happy to walk through the code directly.",
     techLabel: "Tech projects",
     bizLabel: "Entrepreneurial projects",
     viewOnGithub: "View on GitHub",
@@ -54,7 +55,12 @@ const en = {
   },
   education: {
     heading: "My background",
-    arc: { bsc: "BSc + Erasmus", mscAi: "MSc AI", mscInnovation: "MSc Innovation" },
+    intro: "My background blends strong technical knowledge with hands-on, applied experience. It spans Artificial Intelligence and Business Innovation, not just the theory behind them. Every degree below came paired with real projects, research or industry work.",
+    arc: {
+      bsc: { degree: "BSc Comp. Eng.", school: "UC3M + NTNU" },
+      mscAi: { degree: "MSc AI", school: "UC3M" },
+      mscInnovation: { degree: "MSc Innovation", school: "UiO" },
+    },
     cards: {
       oslo: {
         chapter: "Current",
@@ -69,12 +75,13 @@ const en = {
       bsc: {
         chapter: "2018–22",
         degree: "BSc Computer Engineering",
-        school: "Carlos III de Madrid University",
+        school: "Carlos III de Madrid University · Erasmus year at NTNU",
       },
     },
   },
   moreAboutMe: {
     heading: "More about me",
+    intro: "In the end, every day you will work with me as a person, not with my CV or my qualifications. Here you can get to know more about my life story and me.",
     timelineLabel: "My timeline",
     funFactsLabel: "Fun facts",
   },
@@ -84,30 +91,35 @@ const en = {
       oslo: {
         location: "Oslo, Norway",
         title: "Growing and chasing my purpose in Oslo",
+        school: "",
         caption: "I came back for the personal growth and opportunities Norway once gave me, back when Trondheim was my first year abroad.",
         extraLabel: "Back in Norway · Oslo",
       },
       madridConsulting: {
         location: "Madrid, Spain",
         title: "Two years as a data consultant",
+        school: "",
         caption: "After finishing my Applied AI master's, I spent two years working as a data consultant, helping companies make better use of their own data.",
         extraLabel: "",
       },
       trondheim: {
         location: "Trondheim, Norway",
-        title: "The year Norway changed everything",
+        title: "BSc Computer Engineering",
+        school: "NTNU, Trondheim · Erasmus exchange",
         caption: "My first time living abroad and truly on my own, away from my family, in a year that reshaped how I see the world.",
-        extraLabel: "First Norway connection · NTNU Trondheim",
+        extraLabel: "First Norway connection",
       },
       bsc: {
         location: "Madrid, Spain",
-        title: "Learning to think like an engineer",
+        title: "BSc Computer Engineering",
+        school: "Carlos III de Madrid University",
         caption: "Years spent building my technical foundation, learning to think in a second language and in code.",
         extraLabel: "",
       },
       childhood: {
         location: "Spain",
         title: "Grew up curious",
+        school: "",
         caption: "Raised in Madrid, always curious, always taking things apart just to see how they worked.",
         extraLabel: "",
       },
@@ -160,6 +172,7 @@ const es: typeof en = {
   },
   projects: {
     heading: "Mis proyectos",
+    intro: "Una mezcla de proyectos tech y emprendedores, la mayoría nacidos de un problema que viví en primera persona. Los proyectos tech son herramientas rápidas y funcionales: scripts, bots y scrapers que resuelven bien una sola cosa. Los emprendedores son más ambiciosos, pensados para usuarios reales y no solo para demostrar un punto. Un par de repositorios son privados, pero encantado de enseñar el código directamente.",
     techLabel: "Proyectos tech",
     bizLabel: "Proyectos emprendedores",
     viewOnGithub: "Ver en GitHub",
@@ -193,7 +206,12 @@ const es: typeof en = {
   },
   education: {
     heading: "Mi formación",
-    arc: { bsc: "Grado + Erasmus", mscAi: "Máster IA", mscInnovation: "Máster Innovación" },
+    intro: "Mi formación combina un sólido conocimiento técnico con experiencia práctica y aplicada. Abarca tanto la Inteligencia Artificial como la Innovación Empresarial, más allá de la teoría. Cada título de abajo vino acompañado de proyectos reales, investigación o trabajo en la industria.",
+    arc: {
+      bsc: { degree: "Grado Ing. Inf.", school: "UC3M + NTNU" },
+      mscAi: { degree: "Máster IA", school: "UC3M" },
+      mscInnovation: { degree: "Máster Innovación", school: "UiO" },
+    },
     cards: {
       oslo: {
         chapter: "Actual",
@@ -208,12 +226,13 @@ const es: typeof en = {
       bsc: {
         chapter: "2018–22",
         degree: "Grado en Ingeniería Informática",
-        school: "Universidad Carlos III de Madrid",
+        school: "Universidad Carlos III de Madrid · Año Erasmus en la NTNU",
       },
     },
   },
   moreAboutMe: {
     heading: "Más sobre mí",
+    intro: "Al final, cada día trabajarás conmigo como persona, no con mi CV ni con mis títulos. Aquí puedes conocer más sobre mi historia de vida y sobre mí.",
     timelineLabel: "Mi trayectoria",
     funFactsLabel: "Datos curiosos",
   },
@@ -223,30 +242,35 @@ const es: typeof en = {
       oslo: {
         location: "Oslo, Noruega",
         title: "Creciendo y persiguiendo mi propósito en Oslo",
+        school: "",
         caption: "Volví por el crecimiento personal y las oportunidades que Noruega ya me dio una vez, cuando Trondheim fue mi primer año en el extranjero.",
         extraLabel: "De vuelta en Noruega · Oslo",
       },
       madridConsulting: {
         location: "Madrid, España",
         title: "Dos años como consultor de datos",
+        school: "",
         caption: "Tras terminar mi máster en IA Aplicada, pasé dos años trabajando como consultor de datos, ayudando a empresas a sacar mejor partido a sus propios datos.",
         extraLabel: "",
       },
       trondheim: {
         location: "Trondheim, Noruega",
-        title: "El año en que Noruega lo cambió todo",
+        title: "Grado en Ingeniería Informática",
+        school: "NTNU, Trondheim · Intercambio Erasmus",
         caption: "Mi primera vez viviendo en el extranjero y verdaderamente solo, lejos de mi familia, en un año que cambió mi forma de ver el mundo.",
-        extraLabel: "Primera conexión con Noruega · NTNU Trondheim",
+        extraLabel: "Primera conexión con Noruega",
       },
       bsc: {
         location: "Madrid, España",
-        title: "Aprendiendo a pensar como ingeniero",
+        title: "Grado en Ingeniería Informática",
+        school: "Universidad Carlos III de Madrid",
         caption: "Años construyendo mi base técnica, aprendiendo a pensar en un segundo idioma y en código.",
         extraLabel: "",
       },
       childhood: {
         location: "España",
         title: "Crecí siendo curioso",
+        school: "",
         caption: "Criado en Madrid, siempre curioso, siempre desmontando cosas solo para ver cómo funcionaban.",
         extraLabel: "",
       },

@@ -114,6 +114,7 @@ export default function MoreAboutMe() {
           <h2 className="text-4xl sm:text-5xl font-bold text-[#E8F0FE] mb-4">
             {t.moreAboutMe.heading}
           </h2>
+          <p className="text-[#B0C8DE] text-lg leading-relaxed max-w-3xl">{t.moreAboutMe.intro}</p>
         </motion.div>
 
         {/* ── My timeline ── */}
@@ -188,6 +189,11 @@ export default function MoreAboutMe() {
                           </div>
                           <div className="flex flex-col justify-center gap-2 p-5 flex-1">
                             <h3 className="font-bold text-[#E8F0FE] text-base leading-tight">{chapterT.title}</h3>
+                            {chapterT.school && (
+                              <p className="inline-flex items-center gap-1.5 text-xs font-semibold" style={{ color: ch.accent }}>
+                                <span aria-hidden>🎓</span>{chapterT.school}
+                              </p>
+                            )}
                             <p className="text-[#6B7FA3] text-sm leading-relaxed">{chapterT.caption}</p>
                           </div>
                         </div>
@@ -197,6 +203,11 @@ export default function MoreAboutMe() {
                         <>
                           <div className="px-5 py-4" style={{ borderBottom: `1px solid ${ch.accent}15` }}>
                             <h3 className="font-bold text-[#E8F0FE] text-base leading-tight mb-2">{chapterT.title}</h3>
+                            {chapterT.school && (
+                              <p className="inline-flex items-center gap-1.5 text-xs font-semibold mb-2" style={{ color: ch.accent }}>
+                                <span aria-hidden>🎓</span>{chapterT.school}
+                              </p>
+                            )}
                             <p className="text-[#6B7FA3] text-sm leading-relaxed">{chapterT.caption}</p>
                           </div>
                           <div className="grid grid-cols-2 gap-px">
@@ -214,12 +225,19 @@ export default function MoreAboutMe() {
                       <div className="relative flex-shrink-0 rounded-xl overflow-hidden" style={{ width: "110px", height: "140px" }}>
                         <Image src={ch.photo} alt={chapterT.title} fill className={`object-cover ${ch.photoPosition}`} sizes="110px" />
                       </div>
-                      <div className="flex flex-col justify-center gap-1.5">
+                      <div className="flex flex-col justify-center gap-2">
                         <div className="flex items-center gap-2">
                           <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: ch.accent }}>{ch.year}</span>
                           <span className="text-xs text-[#6B7FA3]">{chapterT.location}</span>
                         </div>
-                        <h3 className="font-bold text-[#E8F0FE] text-base leading-tight">{chapterT.title}</h3>
+                        <div>
+                          <h3 className="font-bold text-[#E8F0FE] text-base leading-tight">{chapterT.title}</h3>
+                          {chapterT.school && (
+                            <p className="inline-flex items-center gap-1.5 text-xs font-semibold mt-1" style={{ color: ch.accent }}>
+                              <span aria-hidden>🎓</span>{chapterT.school}
+                            </p>
+                          )}
+                        </div>
                         <p className="text-[#6B7FA3] text-sm leading-snug">{chapterT.caption}</p>
                       </div>
                     </div>

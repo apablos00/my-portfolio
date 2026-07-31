@@ -67,6 +67,7 @@ export default function Projects() {
           <h2 className="text-4xl sm:text-5xl font-bold text-[#D6E5F2] mb-4">
             {t.projects.heading}
           </h2>
+          <p className="text-[#B0C8DE] text-lg leading-relaxed max-w-3xl">{t.projects.intro}</p>
         </motion.div>
 
         {/* Tech projects */}
