@@ -1,163 +1,90 @@
 "use client";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useLanguage } from "../i18n/LanguageContext";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const navItems = [
-  { href: "#profile", key: "profile" as const },
-  { href: "#education", key: "education" as const },
-  { href: "#projects", key: "projects" as const },
-  { href: "#more-about-me", key: "moreAboutMe" as const },
-  { href: "#lets-connect", key: "connect" as const },
+  { href: "#skills", label: "Skills" },
+  { href: "#work", label: "Work" },
+  { href: "#experience", label: "Experience" },
+  { href: "#background", label: "Background" },
 ];
 
 export default function Navigation() {
-  const { lang, toggle: toggleLang, t } = useLanguage();
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("");
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const sectionIds = navItems.map((l) => l.href.slice(1));
-    const observers: IntersectionObserver[] = [];
-
-    // Track how much of each section is visible
-    const visibility: Record<string, number> = {};
-
-    const pickActive = () => {
-      const winner = Object.entries(visibility).sort((a, b) => b[1] - a[1])[0];
-      if (winner && winner[1] > 0) setActiveSection(winner[0]);
-    };
-
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const obs = new IntersectionObserver(
-        ([entry]) => {
-          visibility[id] = entry.intersectionRatio;
-          pickActive();
-        },
-        { threshold: Array.from({ length: 21 }, (_, i) => i / 20) }
-      );
-      obs.observe(el);
-      observers.push(obs);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
-  }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300"
-      style={{
-        background: scrolled ? "rgba(4, 11, 22, 0.9)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(78,205,196,0.1)" : "none",
-      }}
+    <nav
+      className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 flex-wrap gap-4"
+      style={{ background: "var(--bg)", borderBottom: "1px solid rgba(16,24,38,0.12)" }}
     >
-      {/* Language toggle */}
-      <button
-        onClick={toggleLang}
-        aria-label="Toggle language"
-        className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 flex items-center gap-0.5 rounded-full p-0.5 z-10"
-        style={{ border: "1px solid rgba(74,144,208,0.3)", background: "rgba(4,11,22,0.4)" }}
-      >
-        <span
-          className="px-2.5 py-2 rounded-full text-[11px] font-bold tracking-wide transition-colors duration-200"
-          style={{
-            color: lang === "en" ? "#D6E5F2" : "#4E6480",
-            background: lang === "en" ? "rgba(74,144,208,0.22)" : "transparent",
-          }}
+      <div className="flex items-center gap-3">
+        <div
+          className="w-9 h-9 rounded-full border flex items-center justify-center font-display font-bold text-[12.5px] flex-shrink-0"
+          style={{ borderColor: "var(--ink)", letterSpacing: "-0.02em" }}
         >
-          EN
-        </span>
-        <span
-          className="px-2.5 py-2 rounded-full text-[11px] font-bold tracking-wide transition-colors duration-200"
-          style={{
-            color: lang === "es" ? "#D6E5F2" : "#4E6480",
-            background: lang === "es" ? "rgba(74,144,208,0.22)" : "transparent",
-          }}
-        >
-          ES
-        </span>
-      </button>
-
-      <div className="max-w-6xl mx-auto flex items-center justify-end md:justify-center">
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-7">
-          {navItems.map((l) => {
-            const isActive = activeSection === l.href.slice(1);
-            return (
-              <a
-                key={l.href}
-                href={l.href}
-                className="relative text-sm font-medium transition-colors duration-200"
-                style={{ color: isActive ? "#D6E5F2" : "#7A95AE" }}
-              >
-                {t.nav[l.key]}
-                {isActive && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute left-0 right-0 -bottom-1 h-px"
-                    style={{ background: "#4A90D0" }}
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </a>
-            );
-          })}
+          AP
         </div>
-
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2 mr-20 sm:mr-24"
-          aria-label="Toggle menu"
-        >
-          <span className={`block w-6 h-0.5 bg-[#4A90D0] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[#4A90D0] transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[#4A90D0] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-        </button>
+        <div className="w-px h-5" style={{ background: "rgba(16,24,38,0.2)" }} />
+        <div className="font-display font-bold text-[15px] whitespace-nowrap" style={{ letterSpacing: "0.01em" }}>
+          Alejandro Pablos
+        </div>
       </div>
 
-      {/* Mobile menu */}
+      <div className="hidden md:flex items-center gap-8">
+        {navItems.map((item) => (
+          <a
+            key={item.href}
+            href={item.href}
+            className="font-bold text-[12.5px] uppercase no-underline pb-1 transition-colors duration-200 border-b-2 border-transparent hover:border-[var(--accent)]"
+            style={{ letterSpacing: "0.06em" }}
+          >
+            {item.label}
+          </a>
+        ))}
+        <a
+          href="#contact"
+          className="font-bold text-[12.5px] uppercase no-underline px-6 py-2.5 rounded-sm transition-colors duration-200 hover:bg-[var(--ink)] hover:text-[#F4F6F8]"
+          style={{ letterSpacing: "0.06em", border: "1.5px solid var(--ink)" }}
+        >
+          Get in touch
+        </a>
+      </div>
+
+      <button
+        onClick={() => setMenuOpen(!menuOpen)}
+        className="md:hidden flex flex-col gap-1.5 p-2"
+        aria-label="Toggle menu"
+      >
+        <span className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} style={{ background: "var(--ink)" }} />
+        <span className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} style={{ background: "var(--ink)" }} />
+        <span className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} style={{ background: "var(--ink)" }} />
+      </button>
+
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden"
-            style={{ background: "rgba(4,12,24,0.98)", borderBottom: "1px solid rgba(74,144,208,0.12)" }}
+            className="md:hidden overflow-hidden w-full"
+            style={{ background: "var(--bg)", borderTop: "1px solid rgba(16,24,38,0.1)" }}
           >
-            <div className="flex flex-col gap-1 px-6 py-4">
-              {navItems.map((l) => {
-                const isActive = activeSection === l.href.slice(1);
-                return (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="font-medium transition-colors py-3 text-base"
-                    style={{ color: isActive ? "#6AAEE0" : "#D6E5F2" }}
-                  >
-                    {t.nav[l.key]}
-                  </a>
-                );
-              })}
+            <div className="flex flex-col gap-1 py-4">
+              {[...navItems, { href: "#contact", label: "Get in touch" }].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="font-bold text-sm uppercase no-underline py-3"
+                  style={{ color: "var(--ink)", letterSpacing: "0.06em" }}
+                >
+                  {item.label}
+                </a>
+              ))}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 }

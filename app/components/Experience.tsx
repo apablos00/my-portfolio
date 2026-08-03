@@ -1,163 +1,87 @@
 "use client";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const experiences = [
   {
     title: "Entrepreneurship & Innovation Advisor",
-    org: "Insj UiO, iHub & StartupLab Oslo",
+    org: "Insj UiO, iHub & StartupLab",
     period: "Feb 2026 – Present",
-    location: "Oslo, Norway",
+    loc: "Oslo, Norway",
     flag: "🇳🇴",
-    color: "#4A90D0",
-    context: "Norway's leading startup incubator ecosystem, embedded through UiO's innovation arm.",
-    challenge: "Early-stage startups struggle to adopt AI in a way that creates real business value, not just technical demos.",
-    role: "I work with student founders and startup teams as an advisor, helping them evaluate AI tools, structure their ideas, and connect with the right partners. I focus on keeping the business logic central.",
-    result: "Supported multiple teams through ideation and go-to-market framing. Established introductions to AI provider partnerships that reduce cost barriers for early-stage adoption.",
-    learning: "The best AI advice is often: you don't need this yet. Clarity comes first.",
+    highlight:
+      "I advise founders on turning AI into real business value instead of demos. I've guided multiple teams from idea to go-to-market and opened partnerships that lower adoption costs for early-stage teams.",
   },
   {
     title: "Go-To-Market Lead",
     org: "Juridex",
-    period: "Feb 2026 – Present",
-    location: "Oslo, Norway",
+    period: "Feb 2026 – May 2026",
+    loc: "Oslo, Norway",
     flag: "🇳🇴",
-    color: "#4A90D0",
-    context: "Norwegian legaltech startup expanding into the Spanish market.",
-    challenge: "Juridex had a strong product but no commercial presence in Spain and needed someone who understood both Norwegian work culture and the Spanish business context.",
-    role: "I lead the B2B outreach to Spanish law firms and legal departments: prospecting, cold outreach, demos and early relationship management.",
-    result: "Ongoing. Building the first pipeline of Spanish clients and gathering market feedback that feeds back into product decisions.",
-    learning: "Selling across cultures requires more listening than talking.",
+    highlight:
+      "I led the commercial expansion of a Norwegian legaltech startup into Spain, owning outreach, demos, and the first client pipeline end to end. My market feedback shaped product decisions directly.",
   },
   {
     title: "Data Consultant",
     org: "NFQ Advisory Solutions",
     period: "Jan 2024 – Jun 2025",
-    location: "Madrid, Spain",
+    loc: "Madrid, Spain",
     flag: "🇪🇸",
-    color: "#C4845A",
-    context: "18 months in a consulting environment, embedded with top-tier banking and insurance clients.",
-    challenge: "Large financial institutions had data spread across siloed systems, making reporting slow and decisions lagged behind reality.",
-    role: "Part of a small team responsible for designing and building cloud data pipelines, analytics infrastructure, and BI dashboards. I also managed small client deliverables and stakeholder communication.",
-    result: "Delivered scalable data platforms for multiple clients. One HR analytics dashboard reduced manual reporting time significantly for the client's team.",
-    learning: "Enterprise clients value predictability and clear communication above all. Technical quality matters, but trust matters more.",
+    highlight:
+      "I designed and delivered cloud data pipelines and BI dashboards for banking and insurance clients, leading small-team delivery and client relationships. One dashboard sharply cut a client's manual reporting time.",
   },
   {
     title: "Computer Vision AI Researcher",
-    org: "ITP Aero (Master's Thesis)",
-    period: "Mar 2023 – Jul 2023",
-    location: "Madrid, Spain",
+    org: "ITP Aero (MSc Thesis)",
+    period: "Mar – Jul 2023",
+    loc: "Madrid, Spain",
     flag: "🇪🇸",
-    color: "#C4845A",
-    context: "Aerospace sector. Final project for my MSc in Applied AI at Carlos III University.",
-    challenge: "Manual inspection of aerospace components for defects is slow, costly, and prone to human error. The challenge was to build a reliable automated system from X-Ray imagery.",
-    role: "I designed, trained, and evaluated a YOLO-based computer vision model to detect structural defects in aircraft components. This was independent research within an industrial environment.",
-    result: "The model reached production-viable accuracy. The thesis was graded 10/10 with Honors, the highest possible grade.",
-    learning: "The hardest part wasn't the algorithm. It was making engineers trust the output. That's a communication problem, not a technical one.",
+    highlight:
+      "I independently designed and trained a computer-vision model to detect aerospace defects, reaching production-viable accuracy. The thesis was graded 10/10 with Honors, the program's highest distinction.",
   },
 ];
 
 export default function Experience() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-
   return (
-    <section id="experience" className="py-28 px-6 relative" ref={ref}>
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 50% 50% at 5% 50%, rgba(44,95,150,0.04) 0%, transparent 60%)" }} />
-
+    <section id="experience" className="px-6 md:px-12 py-24" style={{ background: "#EAEDF1" }}>
       <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="mb-6"
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-11 max-w-xl"
         >
-          <p className="section-label mb-3">Work</p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#D6E5F2] mb-4">
-            What I've<br /><span className="gradient-text">worked on</span>
-          </h2>
-          <p className="text-[#7A95AE] max-w-xl text-base leading-relaxed">
-            Four roles that shaped how I think. Each one taught me something I still use.
+          <div className="eyebrow mb-3.5">Experience</div>
+          <h2 className="font-display font-bold text-3xl sm:text-[42px] leading-tight mb-3.5">What I&apos;ve worked on.</h2>
+          <p className="text-sm sm:text-base leading-relaxed" style={{ color: "#5B6572" }}>
+            With the experience I&apos;ve gotten so far, I have a good understanding of what tech developments entail in real corporate settings, plus a sense of the factors that must be considered before building real solutions.
           </p>
         </motion.div>
 
-        {/* Location key */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center gap-6 mb-14"
-        >
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#4A90D0]" />
-            <span className="text-[#4E6480] text-xs">Oslo, Norway</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#C4845A]" />
-            <span className="text-[#4E6480] text-xs">Madrid, Spain</span>
-          </div>
-        </motion.div>
-
-        <div className="flex flex-col gap-10">
-          {experiences.map((exp, i) => (
+        <div className="relative">
+          <div className="absolute left-[5px] top-3.5 bottom-3.5 w-0.5" style={{ background: "rgba(16,24,38,0.14)" }} />
+          {experiences.map((e, i) => (
             <motion.div
-              key={`${exp.org}-${exp.title}`}
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.55, delay: 0.15 + i * 0.1 }}
-              className="glass-card rounded-2xl overflow-hidden"
+              key={e.title}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.09 }}
+              className="relative py-7 pl-10"
             >
-              {/* Top bar */}
-              <div className="h-px w-full" style={{ background: `linear-gradient(90deg, ${exp.color}80, transparent)` }} />
-
-              <div className="p-7">
-                {/* Header */}
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span>{exp.flag}</span>
-                      <span className="text-[#4E6480] text-xs">{exp.location} · {exp.period}</span>
-                    </div>
-                    <h3 className="font-bold text-[#D6E5F2] text-lg leading-tight">{exp.title}</h3>
-                    <p className="text-sm font-medium mt-0.5" style={{ color: exp.color }}>{exp.org}</p>
-                  </div>
-                </div>
-
-                {/* Context */}
-                <p className="text-[#7A95AE] text-sm italic leading-relaxed mb-6 pb-5"
-                  style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                  {exp.context}
-                </p>
-
-                {/* Case study grid */}
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <p className="text-[10px] font-bold tracking-widest uppercase mb-2" style={{ color: exp.color }}>
-                      The challenge
-                    </p>
-                    <p className="text-[#8AACCA] text-sm leading-relaxed">{exp.challenge}</p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold tracking-widest uppercase mb-2" style={{ color: exp.color }}>
-                      My contribution
-                    </p>
-                    <p className="text-[#8AACCA] text-sm leading-relaxed">{exp.role}</p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold tracking-widest uppercase mb-2" style={{ color: exp.color }}>
-                      Outcome
-                    </p>
-                    <p className="text-[#8AACCA] text-sm leading-relaxed">{exp.result}</p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold tracking-widest uppercase mb-2" style={{ color: exp.color }}>
-                      What I learned
-                    </p>
-                    <p className="text-[#8AACCA] text-sm leading-relaxed italic">{exp.learning}</p>
-                  </div>
-                </div>
+              <div
+                className="absolute left-0 top-[34px] w-3 h-3 rounded-full"
+                style={{
+                  background: i === 0 ? "var(--accent)" : "#FFFFFF",
+                  border: "2.5px solid var(--accent)",
+                }}
+              />
+              <div className="text-xs mb-2" style={{ color: "#5B6572" }}>
+                {e.flag} {e.loc} · {e.period}
               </div>
+              <h3 className="font-display font-bold text-xl mb-1">{e.title}</h3>
+              <p className="text-sm font-semibold mb-3.5" style={{ color: "var(--accent)" }}>{e.org}</p>
+              <p className="text-sm leading-relaxed max-w-xl m-0" style={{ color: "#3A4450" }}>{e.highlight}</p>
             </motion.div>
           ))}
         </div>

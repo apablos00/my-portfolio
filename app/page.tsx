@@ -1,21 +1,21 @@
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
-import AboutMe from "./components/AboutMe";
-import Projects from "./components/Projects";
-import Education from "./components/Education";
-import MoreAboutMe from "./components/MoreAboutMe";
-import LetsConnect from "./components/LetsConnect";
+import Skills from "./components/Skills";
+import Experience from "./components/Experience";
+import Work from "./components/Work";
+import Background from "./components/Background";
+import Contact from "./components/Contact";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#040C18]">
+    <main className="min-h-screen" style={{ background: "var(--bg)" }}>
       <Navigation />
       <Hero />
-      <AboutMe />
-      <Education />
-      <Projects />
-      <MoreAboutMe />
-      <LetsConnect />
+      <Skills />
+      <Experience />
+      <Work />
+      <Background />
+      <Contact />
     </main>
   );
 }
